@@ -14,13 +14,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
       - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew build
+        run: ./gradlew build
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Minecraft-Mod-File
+          name: My-Minecraft-Mod
           path: build/libs/*.jar
